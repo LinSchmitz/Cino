@@ -21,7 +21,12 @@ function NavBar() {
 }
 
 function Logo() {
-  return <h3>logo</h3>;
+  return (
+    <div className="logo">
+      <span role="img">🍿</span>
+      <h1>Cino</h1>
+    </div>
+  );
 }
 
 function Search() {
@@ -33,5 +38,18 @@ function NumResults() {
 }
 
 function Main() {
-  return <main className="main">main</main>;
+  return (
+    <main className="main">
+      <ListBox />
+      <WatchedBox />
+    </main>
+  );
+}
+
+function ListBox() {
+  return <div className="box">ListBox</div>;
+}
+
+function WatchedBox() {
+  return <div className="box">WatchedBox</div>;
 }
