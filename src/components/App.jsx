@@ -51,26 +51,44 @@ const tempWatchedData = [
 const average = arr =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-function Navbar({ movies }) {
-  const [query, setQuery] = useState('');
+export default function App() {
+  const [movies, setMovies] = useState(tempMovieData);
 
+  return (
+    <>
+      <Navbar movies={movies} />
+      <Main movies={movies} />
+    </>
+  );
+}
+
+function Navbar({ movies }) {
   return (
     <nav className="nav-bar">
       <div className="logo">
         <span role="img">🍿</span>
         <h1>usePopcorn</h1>
       </div>
-      <input
-        className="search"
-        type="text"
-        placeholder="Search movies..."
-        value={query}
-        onChange={e => setQuery(e.target.value)}
-      />
+      <Search />
+
       <p className="num-results">
         Found <strong>{movies.length}</strong> results
       </p>
     </nav>
+  );
+}
+
+function Search() {
+  const [query, setQuery] = useState('');
+
+  return (
+    <input
+      className="search"
+      type="text"
+      placeholder="Search movies..."
+      value={query}
+      onChange={e => setQuery(e.target.value)}
+    />
   );
 }
 
@@ -167,16 +185,5 @@ function Main({ movies }) {
         )}
       </div>
     </main>
-  );
-}
-
-export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-
-  return (
-    <>
-      <Navbar movies={movies} />
-      <Main movies={movies} />
-    </>
   );
 }
