@@ -111,7 +111,6 @@ function Main() {
 }
 
 function ListBox() {
-  const [movies, setMovies] = useState(tempMovieData);
   const [isOpen1, setIsOpen1] = useState(true);
 
   return (
@@ -119,12 +118,14 @@ function ListBox() {
       <button className="btn-toggle" onClick={() => setIsOpen1(open => !open)}>
         {isOpen1 ? '–' : '+'}
       </button>
-      {isOpen1 && <MovieList movies={movies} />}
+      {isOpen1 && <MovieList />}
     </div>
   );
 }
 
-function MovieList({ movies }) {
+function MovieList() {
+  const [movies, setMovies] = useState(tempMovieData);
+
   return (
     <ul className="list">
       {movies?.map(movie => (
