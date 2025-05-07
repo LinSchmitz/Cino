@@ -1,0 +1,254 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+:root {
+  --x: 0;
+  --y: 0;
+  --xp: 0;
+  --yp: 0;
+  --hue: calc(0 + (var(--xp) * 500));
+
+  --bg: #2b2a2a;
+  --color-light1: #e8f6ef;
+  --color-dark: #424242;
+  --color-green: #36dfc0;
+  --color-red: #e05b5b;
+
+  --size: 100px;
+  --br: 1rem; /* border radious */
+  --glow: radial-gradient(
+      50% 50% at center,
+      hsl(var(--hue) 80% 85%),
+      hsl(var(--hue) 80% 70%),
+      transparent
+    )
+    calc((var(--x) * 1px) - (var(--size) * 0.5))
+    calc((var(--y) * 1px) - (var(--size) * 0.5)) / var(--size) var(--size)
+    no-repeat fixed;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.controls {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif, system-ui;
+  background: var(--bg);
+  color: var(--color-light1);
+
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.app {
+  width: 100%;
+  min-height: 66vh;
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+}
+
+.addnew,
+.split,
+.FreindsList {
+  width: 500px;
+  margin: 1rem;
+  padding: 1rem;
+  color: var(--color-light1);
+  border: 4px solid transparent;
+  border-radius: var(--br);
+  box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset;
+  background: linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(black, black) border-box;
+  transition: background-size 0.24s;
+}
+
+.FreindsList {
+  height: 388px;
+  font-size: 1.4rem;
+}
+
+.FreindsList button {
+  margin-right: 10px;
+}
+
+.split {
+  height: 450px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  margin-right: 20px;
+}
+
+li {
+  display: grid;
+  grid-template-columns: 4.8rem 1fr auto;
+  column-gap: 1.6rem;
+
+  padding: 1.2rem;
+  border-radius: var(--br);
+  transition: 0.5s;
+}
+
+li:hover {
+  background-color: var(--color-dark);
+}
+
+li img {
+  border-radius: 50%;
+  width: 100%;
+  grid-row: span 2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+}
+
+form #img {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+form button {
+  align-self: center;
+  width: 90%;
+}
+
+.split-input-group {
+  width: 80%;
+  height: 30px;
+  display: flex;
+  /* Align label and input in a row */
+  flex-direction: row;
+  /* Vertically center items in the flex container */
+  /* margin-bottom: 10px; */
+  align-items: center;
+  border-radius: var(--br);
+  align-self: center;
+}
+
+/* .split-input-group label {
+  margin-right: 10px;
+} */
+
+.split-input-group select {
+  padding: 0.7rem;
+  text-align: center;
+  border: 1px solid var(--color-light);
+  border-radius: var(--br);
+  transition: 0.3s;
+  margin-left: 1rem;
+}
+
+.split h3 {
+  align-self: center;
+  font-size: 2.5rem;
+}
+
+.split button {
+  margin-top: 8rem;
+}
+
+input {
+  width: 50%;
+  height: 30px;
+  border-radius: var(--br);
+  margin-left: 3rem;
+  align-self: self-end;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border-radius: var(--br);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.1ch;
+  background: var(--bg);
+  border: 4px solid transparent;
+  box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset;
+  cursor: pointer;
+  background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--glow),
+    linear-gradient(black, black) border-box;
+  transition: background-size 0.24s;
+  touch-action: none;
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset;
+  background: var(--bg);
+  z-index: 2;
+  border-radius: var(--br);
+}
+
+button span {
+  background: var(--glow), black;
+  background-clip: text;
+  color: transparent;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  inset: 0;
+}
+
+:root:has(button:active) {
+  --size: 300px;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  filter: blur(20px);
+  border: 4px solid transparent;
+  background: var(--glow);
+  border-radius: var(--br);
+}
+
+.green {
+  color: var(--color-green);
+}
+
+.red {
+  color: var(--color-red);
+}
+
+#pplexp {
+  background-color: var(--color-dark);
+  color: var(--color-light1);
+}
+
+.selected {
+  background-color: var(--color-dark);
+}
