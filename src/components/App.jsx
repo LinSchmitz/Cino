@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function App() {
   return (
@@ -30,7 +30,17 @@ function Logo() {
 }
 
 function Search() {
-  return <h3>Search</h3>;
+  const [query, setQuery] = useState('');
+
+  return (
+    <input
+      type="text"
+      placeholder="Search movies..."
+      className="search"
+      value={query}
+      onChange={e => setQuery(e.target.value)}
+    />
+  );
 }
 
 function NumResults() {
