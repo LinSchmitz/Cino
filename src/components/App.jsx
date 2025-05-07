@@ -52,18 +52,18 @@ export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   return (
     <>
-      <NavBar />
+      <NavBar movies={movies} />
       <Main movies={movies} />
     </>
   );
 }
 
-function NavBar() {
+function NavBar({ movies }) {
   return (
     <nav className="nav-bar">
       <Logo />
       <Search />
-      <NumResults />
+      <NumResults movies={movies} />
     </nav>
   );
 }
@@ -91,10 +91,10 @@ function Search() {
   );
 }
 
-function NumResults() {
+function NumResults({ movies }) {
   return (
     <p className="num-results">
-      Found <strong>X</strong> reasults
+      Found <strong>{movies.length} </strong> reasults
     </p>
   );
 }
@@ -136,5 +136,18 @@ function Movie({ movie }) {
 }
 
 function WatchedBox() {
-  return <div className="box">WatchedBox</div>;
+  return (
+    <div className="box">
+      <WatchedSummary />
+      <WatchedMovieList />
+    </div>
+  );
+}
+
+function WatchedSummary() {
+  return <div>WatchedSummary</div>;
+}
+
+function WatchedMovieList() {
+  return <div>WatchedMovieList</div>;
 }
