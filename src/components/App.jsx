@@ -56,8 +56,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar movies={movies}>
-        {' '}
+      <Navbar>
         <Logo />
         <Search />
         <NumResults movies={movies} />
