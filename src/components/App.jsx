@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 
 const tempMovieData = [
   {
@@ -56,20 +56,19 @@ export default function App() {
 
   return (
     <>
-      <Navbar movies={movies} />
+      <Navbar movies={movies}>
+        {' '}
+        <Logo />
+        <Search />
+        <NumResults movies={movies} />
+      </Navbar>
       <Main movies={movies} />
     </>
   );
 }
 
-function Navbar({ movies }) {
-  return (
-    <nav className="nav-bar">
-      <Logo />
-      <Search />
-      <NumResults movies={movies} />
-    </nav>
-  );
+function Navbar({ Children }) {
+  return <nav className="nav-bar">{Children}</nav>;
 }
 
 function Logo() {
