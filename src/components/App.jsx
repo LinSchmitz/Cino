@@ -69,8 +69,8 @@ export default function App() {
   );
 }
 
-function Navbar({ Children }) {
-  return <nav className="nav-bar">{Children}</nav>;
+function Navbar({ children }) {
+  return <nav className="nav-bar">{children}</nav>;
 }
 
 function Logo() {
@@ -104,8 +104,8 @@ function Search() {
   );
 }
 
-function Main({ Children }) {
-  return <main className="main">{Children}</main>;
+function Main({ children }) {
+  return <main className="main">{children}</main>;
 }
 
 function ListBox({ movies }) {
