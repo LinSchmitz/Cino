@@ -222,7 +222,7 @@ function WatchedMovieList({ watched }) {
     </ul>
   );
 }
-/*  comments   */
+
 function WatchedMovie({ movie }) {
   return (
     <li>
