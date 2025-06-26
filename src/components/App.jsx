@@ -137,6 +137,7 @@ function Box({ children }) {
     </div>
   );
 }
+
 /*
 function WatchedBox() {
   const [isOpen2, setIsOpen2] = useState(true);
@@ -155,8 +156,8 @@ function WatchedBox() {
       )}
     </div>
   );
-}
-  */
+} 
+*/
 
 function MovieList({ movies }) {
   return (

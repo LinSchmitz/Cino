@@ -1,32 +1,50 @@
-# 🎬 Cino
+# 🎬 Cino – A Simple & Elegant Movie App
 
-**Cino** is a simple and elegant movie app where users can:
+**Cino** is a minimalist and elegant movie browser that helps you discover, track, and organize your favorite films with ease.
 
-- 🔍 **Search** for movies
-- 📖 **Read** short summaries
-- ⭐ **Rate** them with stars
-- ➕ **Add** them to personal lists
+---
 
-Whether you're discovering a hidden gem or tracking your favorite films, Cino makes it quick and enjoyable.
+## ✨ Features
 
-### 🚀 Features
+🔍 **Search movies** in real-time  
+📖 **Read short, spoiler-free summaries**  
+⭐ **Rate movies** using a star-based system  
+➕ **Create custom movie lists** (e.g. "Watch Later", "Favorites")
 
-- Movie search with real-time results
-- Short, spoiler-free summaries
-- Star-based user rating system
-- Add movies to custom lists (e.g. "Watch Later", "Favorites")
+Whether you're uncovering a hidden gem or keeping track of what to watch next, Cino makes the experience simple and enjoyable.
 
-### 🛠 Tech Stack
+---
 
-- **Frontend**: ReactJS + Tailwind CSS
-- **Backend**: Coming soon (for user lists & ratings)
-- **API**: TMDB or OMDb API (for movie data)
+## 🛠 Tech Stack
 
-### 📦 Installation
+- **Frontend:** ReactJS + Tailwind CSS
+- **API:** TMDB or OMDb API _(for fetching movie data)_
+- **Backend:** Coming soon _(to store user lists & ratings)_
+
+---
+
+## 📸 Preview
+
+> _(Add a screenshot or short gif here if you have one)_
+
+---
+
+## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/cino.git
+git clone https://github.com/your-username/cino.git
 cd cino
 npm install
-npm run dev
+npm start
+
+
+🚧 Future Plans
+🔐 User login & data persistence
+
+🌓 Dark mode toggle
+
+📱 Mobile-first responsive improvements
+
+💬 Feedback & Contributions
+Feedback, ideas, and pull requests are welcome! Let’s make Cino better togethe
 ```
