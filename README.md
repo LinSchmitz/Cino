@@ -25,7 +25,7 @@ Whether you're uncovering a hidden gem or keeping track of what to watch next, C
 
 ## 📸 Preview
 
-> _(Add a screenshot or short gif here if you have one)_
+![alt text](public/img/1.png)
 
 ---
 
