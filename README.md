@@ -25,7 +25,8 @@ Whether you're uncovering a hidden gem or keeping track of what to watch next, C
 
 ## 📸 Preview
 
-![alt text](public/img/1.png)
+![alt text](public/img/2.png)
+![alt text](public/img/3.png)
 
 ---
 
