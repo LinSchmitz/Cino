@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { Children, useState } from 'react';
+import React, { Children, useEffect, useState } from 'react';
 import SocialMedia from './SocialMedia';
 import Icon from './Icon';
 
@@ -56,12 +56,14 @@ const average = arr =>
 const KEY = 'c282e554';
 
 export default function App() {
-  const [watched, setWatched] = useState(tempWatchedData);
-  const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-  fetch(
-    `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=interstellar`
-  ).then(res => res.json().then(data => console.log(data)));
+  useEffect(function () {
+    fetch(
+      `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=interstellar`
+    ).then(res => res.json().then(data => setMovies(data.Search)));
+  }, []);
 
   return (
     <>
