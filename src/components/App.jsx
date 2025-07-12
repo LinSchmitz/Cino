@@ -121,14 +121,14 @@ function Search() {
 }
 
 function Main({ children }) {
-  return <main className="main">{children}</main>;
+  return <main className="main card">{children}</main>;
 }
 
 function Box({ children }) {
   const [isOpen1, setIsOpen1] = useState(true);
 
   return (
-    <div className="box">
+    <div className="box card">
       <button className="btn-toggle" onClick={() => setIsOpen1(open => !open)}>
         {isOpen1 ? '–' : '+'}
       </button>
