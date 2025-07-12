@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Children, useState } from 'react';
+import SocialMedia from './SocialMedia';
 
 const tempMovieData = [
   {
@@ -63,6 +64,9 @@ export default function App() {
         <NumResults movies={movies} />
       </Navbar>
 
+      <div className="social-wrapper">
+        <Footer />
+      </div>
       <Main>
         {/* <Box element={<MovieList movies={movies} />} />
         <Box
@@ -95,6 +99,14 @@ function Logo() {
       <span role="img">🍿</span>
       <h1>Cino</h1>
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <>
+      <SocialMedia />
+    </>
   );
 }
 
