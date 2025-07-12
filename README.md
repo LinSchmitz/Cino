@@ -49,3 +49,6 @@ npm start
 💬 Feedback & Contributions
 Feedback, ideas, and pull requests are welcome! Let’s make Cino better togethe
 ```
+
+OMDB API
+http://www.omdbapi.com/?i=tt3896198&apikey=c282e554
