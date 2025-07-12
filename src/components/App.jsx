@@ -54,6 +54,7 @@ const average = arr =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 const KEY = 'c282e554';
+const query = 'Inception';
 
 export default function App() {
   const [watched, setWatched] = useState([]);
@@ -62,7 +63,7 @@ export default function App() {
   useEffect(function () {
     async function fetchMovies() {
       const res = await fetch(
-        `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=interstellar`
+        `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=${query}`
       );
       const data = await res.json();
       setMovies(data.Search);
