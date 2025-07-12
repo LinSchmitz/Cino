@@ -66,7 +66,7 @@ export default function App() {
       </Navbar>
 
       <div className="social-wrapper">
-        <Footer />
+        <SideBar />
       </div>
 
       <Main>
@@ -104,7 +104,7 @@ function Logo() {
   );
 }
 
-function Footer() {
+function SideBar() {
   return (
     <>
       <SocialMedia />
