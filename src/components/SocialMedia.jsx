@@ -88,7 +88,7 @@ function SocialMedia() {
           </li>
         </ul>
         <div className="copyright">
-          <span>@2025</span> Lin Schmitz
+          &copy; {new Date().getFullYear()} Lin Schmitz
         </div>
       </div>
     </>
