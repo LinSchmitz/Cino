@@ -88,9 +88,10 @@ body {
 }
 
 /****** SocialMedia *****/
+
 .social-wrapper {
   position: fixed;
-  top: 75%;
+  top: 70%;
 
   margin-left: 1rem;
   /* left: 1rem; */
@@ -124,13 +125,13 @@ body {
 .card-social ul {
   padding: 1rem;
   display: flex;
-  list-style: none;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
   flex-direction: column;
+  list-style: none;
+  gap: 1.1rem;
+  justify-content: center;
+  /* align-items: center; */
+  /* align-content: center; */
+  flex-wrap: wrap;
 }
 
 .card-social ul li {
@@ -192,6 +193,19 @@ body {
 .iso-pro:hover span:nth-child(3) {
   opacity: 0.6;
   transform: translate(10px, -10px);
+}
+
+.copyright {
+  padding: 1.3rem;
+  color: var(--color-socialmedia-btn);
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.copyright:hover {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  transform: scale(1.3);
 }
 
 /* ******* */

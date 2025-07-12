@@ -87,6 +87,9 @@ function SocialMedia() {
             </a>
           </li>
         </ul>
+        <div className="copyright">
+          <span>@2025</span> Lin Schmitz
+        </div>
       </div>
     </>
   );
