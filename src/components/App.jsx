@@ -86,7 +86,7 @@ export default function App() {
 }
 
 function Navbar({ children }) {
-  return <nav className="nav-bar">{children}</nav>;
+  return <nav className="nav-bar card">{children}</nav>;
 }
 
 function Logo() {
