@@ -1,6 +1,6 @@
 :root {
-  --color-primary: #6741d9;
-  --color-primary-light: #7950f2;
+  --color-primary: #ffae0079;
+  --color-primary-light: #7d7d7de0;
   --color-text: #dee2e6;
   --color-text-dark: #adb5bd;
   --color-background-100: #343a40;
@@ -8,6 +8,7 @@
   --color-background-900: #212529;
   --color-red: #fa5252;
   --color-red-dark: #e03131;
+  --color-socialmedia-btn: #ffae00;
 }
 
 * {
@@ -144,25 +145,10 @@ body {
   height: 60px;
   width: 60px;
   border-radius: 100%;
-  color: rgb(255, 174, 0);
+  color: var(--color-socialmedia-btn);
   fill: currentColor;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
     inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
-}
-
-.text-social {
-  opacity: 0;
-  border-radius: 5px;
-  padding: 5px;
-  transition: all 0.3s;
-  color: rgb(255, 174, 0);
-  background-color: rgba(255, 255, 255, 0.3);
-  position: absolute;
-  z-index: 9999;
-  box-shadow: -5px 0 1px rgba(153, 153, 153, 0.2),
-    -10px 0 1px rgba(153, 153, 153, 0.2),
-    inset 0 0 20px rgba(255, 255, 255, 0.3),
-    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082);
 }
 
 /*isometric prooyection*/
@@ -172,11 +158,6 @@ body {
 .iso-pro:hover a > .svg-social {
   transform: translate(15px, -15px);
   border-radius: 100%;
-}
-
-.iso-pro:hover .text-social {
-  opacity: 1;
-  transform: translate(25px, -2px) skew(-5deg);
 }
 
 .iso-pro:hover .svg-social {
