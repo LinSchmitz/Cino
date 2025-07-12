@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Children, useState } from 'react';
 import SocialMedia from './SocialMedia';
+import Loader from './Loader';
 
 const tempMovieData = [
   {
@@ -67,6 +68,7 @@ export default function App() {
       <div className="social-wrapper">
         <Footer />
       </div>
+
       <Main>
         {/* <Box element={<MovieList movies={movies} />} />
         <Box
