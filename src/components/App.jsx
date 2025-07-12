@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Children, useState } from 'react';
 import SocialMedia from './SocialMedia';
-import Loader from './Loader';
+import Icon from './Icon';
 
 const tempMovieData = [
   {
@@ -98,7 +98,9 @@ function Navbar({ children }) {
 function Logo() {
   return (
     <div className="logo">
-      <span role="img">🍿</span>
+      <span role="img">
+        <Icon />
+      </span>
       <h1>Cino</h1>
     </div>
   );
