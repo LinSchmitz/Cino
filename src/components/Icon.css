@@ -3,6 +3,8 @@
   width: 44px;
   height: 44px;
   position: relative;
+  display: inline-block;
+  margin: 0 16px;
 }
 
 .icon:before {
@@ -15,27 +17,7 @@
   background: var(--dot);
   top: 37px;
   left: 19px;
-
   transform: translate(-18px, -18px);
-  animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
-    infinite;
-}
-
-/* Spin animation on hover */
-.icon:hover {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.icon svg {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
 
 .icon svg circle {
@@ -44,16 +26,16 @@
   stroke-width: 10px;
   stroke-linejoin: round;
   stroke-linecap: round;
-}
-
-.icon svg circle {
   stroke-dasharray: 150 50 150 50;
   stroke-dashoffset: 75;
-  animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
-    infinite;
 }
 
-.icon {
-  display: inline-block;
-  margin: 0 16px;
+.icon:hover {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
