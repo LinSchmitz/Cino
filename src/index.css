@@ -54,6 +54,7 @@ body {
     radial-gradient(at 0% 64%, hsla(263, 93%, 56%, 1) 0px, transparent 85%),
     radial-gradient(at 41% 94%, hsla(284, 100%, 84%, 1) 0px, transparent 85%),
     radial-gradient(at 100% 99%, hsla(306, 100%, 57%, 1) 0px, transparent 85%);
+  background-repeat: no-repeat;
 }
 
 /* ******* */
