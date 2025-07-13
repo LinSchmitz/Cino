@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Children, useEffect, useState } from 'react';
 import SocialMedia from './SocialMedia';
+import Loader from './Loader';
 import Icon from './Icon';
 
 const tempMovieData = [
@@ -59,14 +60,17 @@ const query = 'Inception';
 export default function App() {
   const [watched, setWatched] = useState([]);
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
     async function fetchMovies() {
+      setIsLoading(true);
       const res = await fetch(
         `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=${query}`
       );
       const data = await res.json();
       setMovies(data.Search);
+      setIsLoading(false);
     }
     fetchMovies();
   }, []);
@@ -84,18 +88,7 @@ export default function App() {
       </div>
 
       <Main>
-        {/* <Box element={<MovieList movies={movies} />} />
-        <Box
-          element={
-            <>
-              <WatchedSummary watched={watched} />
-              <WatchedMovieList watched={watched} />
-            </>
-          }
-        /> */}
-        <Box>
-          <MovieList movies={movies} />
-        </Box>
+        <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box>
         <Box>
           <WatchedSummary watched={watched} />
           <WatchedMovieList watched={watched} />

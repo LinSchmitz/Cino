@@ -1,18 +1,14 @@
 import React from 'react';
 import './Loader.css';
 
-function Loader() {
+export default function Loader() {
   return (
-    <div className="container">
-      {[0, 1, 2].map((_, index) => (
-        <div className="square" key={index}>
-          {[0, 1, 2, 3].map(i => (
-            <span key={i} style={{ '--i': i }}></span>
-          ))}
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="loader-circle">
+        <svg viewBox="0 0 80 80">
+          <circle r="32" cy="40" cx="40" id="test" />
+        </svg>
+      </div>
+    </>
   );
 }
-
-export default Loader;
