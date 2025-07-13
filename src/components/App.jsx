@@ -75,11 +75,14 @@ export default function App() {
           throw new Error('Something went wrong with fetching movies');
 
         const data = await res.json();
+        if (data.Response === 'False') throw new Error('Movie not found!');
+
         setMovies(data.Search);
-        setIsLoading(false);
       } catch (err) {
         console.log(err.message);
         setError(err.message);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchMovies();
@@ -98,7 +101,12 @@ export default function App() {
       </div>
 
       <Main>
-        <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box>
+        <Box>
+          {isLoading && <Loader />}
+          {!isLoading && !error && <MovieList movies={movies} />}
+          {error && <ErrorMessage message={error} />}
+          {/* {isLoading ? <Loader /> : <MovieList movies={movies} />} */}
+        </Box>
         <Box>
           <WatchedSummary watched={watched} />
           <WatchedMovieList watched={watched} />
@@ -110,6 +118,10 @@ export default function App() {
 
 function Navbar({ children }) {
   return <nav className="nav-bar card">{children}</nav>;
+}
+
+function ErrorMessage({ message }) {
+  return <p className="error">{message} </p>;
 }
 
 function Logo() {
