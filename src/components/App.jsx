@@ -217,14 +217,17 @@ function MovieDetails({ selectedId, onCloseMovie }) {
   const [movie, setMovie] = useState({});
 
   const {
-    Poster: poster,
     Title: title,
-    Type: type,
     Year: year,
-    imdbID,
+    Poster: poster,
+    Runtime: runtime,
+    imdbRating,
+    Plot: plot,
+    Released: released,
+    Actors: actors,
+    Director: director,
+    Genre: genre,
   } = movie;
-
-  console.log(title, type);
 
   useEffect(function () {
     async function getMoviedetails() {
@@ -242,9 +245,21 @@ function MovieDetails({ selectedId, onCloseMovie }) {
 
   return (
     <div className="details">
-      <button className="btn-back" onClick={onCloseMovie}>
-        &larr;
-      </button>
+      <header>
+        <button className="btn-back" onClick={onCloseMovie}>
+          &larr;
+        </button>
+        <img src={poster} alt={`Poster of ${movie} movie`} />
+        <div className="details-overview">
+          <h2>{title}</h2>
+          <p>&bull;</p>
+          <p>{genre}</p>
+          <p>
+            <span>⭐️</span>
+            {imdbRating} IMDb rating
+          </p>
+        </div>
+      </header>
       {selectedId}
     </div>
   );
