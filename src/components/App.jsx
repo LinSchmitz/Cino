@@ -3,6 +3,7 @@ import React, { Children, useEffect, useState } from 'react';
 import SocialMedia from './SocialMedia';
 import Loader from './Loader';
 import Icon from './Icon';
+import StarRating from './StarRating';
 
 const average = arr =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -263,13 +264,13 @@ function MovieDetails({ selectedId, onCloseMovie }) {
         </div>
       </header>
       <section>
+        <StarRating />
         <p>
           <em>{plot}</em>
         </p>
         <p>Starring {actors}</p>
         <p>Directed by {director}</p>
       </section>
-      {selectedId}
     </div>
   );
 }
