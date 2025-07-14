@@ -264,7 +264,9 @@ function MovieDetails({ selectedId, onCloseMovie }) {
         </div>
       </header>
       <section>
-        <StarRating maxRating={10} size={24} />
+        <div className="rating">
+          <StarRating maxRating={10} size={24} />
+        </div>
         <p>
           <em>{plot}</em>
         </p>
