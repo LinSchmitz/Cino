@@ -62,8 +62,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
-
-  const tempQuery = 'Inception';
+  const [selectedId, setSelectedId] = useState(null);
 
   useEffect(
     function () {
@@ -82,6 +81,7 @@ export default function App() {
           if (data.Response === 'False') throw new Error('Movie not found!');
 
           setMovies(data.Search);
+          console.log(data.Search);
         } catch (err) {
           console.log(err.message);
           setError(err.message);
@@ -120,8 +120,14 @@ export default function App() {
           {/* {isLoading ? <Loader /> : <MovieList movies={movies} />} */}
         </Box>
         <Box>
-          <WatchedSummary watched={watched} />
-          <WatchedMovieList watched={watched} />
+          {selectedId ? (
+            <MovieDetails selectedId={selectedId} />
+          ) : (
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMovieList watched={watched} />
+            </>
+          )}
         </Box>
       </Main>
     </>
@@ -239,6 +245,10 @@ function Movie({ movie }) {
       </div>
     </li>
   );
+}
+
+function MovieDetails({ selectedId }) {
+  return <div className="details">{selectedId} </div>;
 }
 
 function WatchedSummary({ watched }) {
