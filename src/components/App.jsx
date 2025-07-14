@@ -229,7 +229,7 @@ function MovieDetails({ selectedId, onCloseMovie }) {
   useEffect(function () {
     async function getMoviedetails() {
       const res = await fetch(
-        `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&i=${selectedId} `
+        `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
       );
 
       const data = await res.json();
