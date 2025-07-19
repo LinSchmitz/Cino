@@ -1,9 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Children, useEffect, useState } from 'react';
-import SocialMedia from './SocialMedia';
 import Loader from './Loader';
-import Icon from './Icon';
 import StarRating from './StarRating';
+import { Logo } from './Logo';
+import { ErrorMessage } from './ErrorMessage';
+import { Search } from './Search';
+import SideBar from './SideBar';
 
 const average = arr =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -108,41 +110,6 @@ export default function App() {
 
 function Navbar({ children }) {
   return <nav className="nav-bar card">{children}</nav>;
-}
-
-function Search({ query, setQuery }) {
-  return (
-    <input
-      className="search"
-      type="text"
-      placeholder="Search movies..."
-      value={query}
-      onChange={e => setQuery(e.target.value)}
-    />
-  );
-}
-
-function ErrorMessage({ message }) {
-  return <p className="error">{message} </p>;
-}
-
-function Logo() {
-  return (
-    <div className="logo">
-      <span role="img">
-        <Icon />
-      </span>
-      <h1>Cino</h1>
-    </div>
-  );
-}
-
-function SideBar() {
-  return (
-    <>
-      <SocialMedia />
-    </>
-  );
 }
 
 function NumResults({ movies }) {
