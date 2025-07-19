@@ -8,6 +8,8 @@ import { Search } from './Search';
 import SideBar from './SideBar';
 import { Navbar } from './Navbar';
 import { NumResults } from './NumResults';
+import { Main } from './Main';
+import { MovieList } from './MovieList';
 
 const average = arr =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -110,10 +112,6 @@ export default function App() {
   );
 }
 
-function Main({ children }) {
-  return <main className="main card">{children}</main>;
-}
-
 function Box({ children }) {
   const [isOpen1, setIsOpen1] = useState(true);
 
@@ -125,52 +123,6 @@ function Box({ children }) {
 
       {isOpen1 && children}
     </div>
-  );
-}
-
-/*
-function WatchedBox() {
-  const [isOpen2, setIsOpen2] = useState(true);
-  const [watched, setWatched] = useState(tempWatchedData);
-
-  return (
-    <div className="box">
-      <button className="btn-toggle" onClick={() => setIsOpen2(open => !open)}>
-        {isOpen2 ? '–' : '+'}
-      </button>
-      {isOpen2 && (
-        <>
-          <WatchedSummary watched={watched} />
-          <WatchedMovieList watched={watched} />
-        </>
-      )}
-    </div>
-  );
-} 
-*/
-
-function MovieList({ movies, onSelectMovie }) {
-  return (
-    <ul className="list list-movies">
-      {movies?.map(movie => (
-        <Movie movie={movie} key={movie.imdbID} onSelectMovie={onSelectMovie} />
-      ))}
-    </ul>
-  );
-}
-
-function Movie({ movie, onSelectMovie }) {
-  return (
-    <li onClick={() => onSelectMovie(movie.imdbID)}>
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
-      <h3>{movie.Title}</h3>
-      <div>
-        <p>
-          <span>🗓</span>
-          <span>{movie.Year}</span>
-        </p>
-      </div>
-    </li>
   );
 }
 
@@ -202,6 +154,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
     };
 
     onAddWatched(newWatchedMovie);
+    onCloseMovie();
   }
 
   useEffect(
