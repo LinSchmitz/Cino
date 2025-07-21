@@ -40,6 +40,15 @@ export default function App() {
     setWatched(watched => watched.filter(movie => movie.imdbID !== id));
   }
 
+  // use Esc key
+  useEffect(function () {
+    document.addEventListener('keydown', function (e) {
+      if (e.code === 'Escape') {
+        handleClosedMovie();
+      }
+    });
+  }, []);
+
   useEffect(
     function () {
       // cleaning up data fetching , AbortController is browser Api
@@ -61,6 +70,7 @@ export default function App() {
           if (data.Response === 'False') throw new Error('Movie not found!');
 
           setMovies(data.Search);
+          setError('');
           // console.log(data.Search);
         } catch (err) {
           // console.log(err.message);
