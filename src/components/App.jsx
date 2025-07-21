@@ -195,6 +195,11 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     function () {
       if (!title) return;
       document.title = `${title}`;
+
+      //clean up function
+      return function () {
+        document.title = 'Cino';
+      };
     },
     [title]
   );
