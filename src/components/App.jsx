@@ -190,6 +190,14 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     [selectedId]
   );
 
+  // change browser tab title to movie we clicked on
+  useEffect(
+    function () {
+      document.title = `${title}`;
+    },
+    [title]
+  );
+
   return (
     <div className="details">
       {isLoading ? (
