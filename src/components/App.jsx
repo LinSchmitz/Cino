@@ -193,6 +193,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   // change browser tab title to movie we clicked on
   useEffect(
     function () {
+      if (!title) return;
       document.title = `${title}`;
     },
     [title]
