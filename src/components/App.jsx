@@ -187,11 +187,17 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   // use Esc key
   useEffect(
     function () {
-      document.addEventListener('keydown', function (e) {
+      function callback(e) {
         if (e.code === 'Escape') {
           onCloseMovie();
         }
-      });
+      }
+      document.addEventListener('keydown', callback);
+
+      // clean up
+      return function () {
+        document.removeEventListener('keydown', callback);
+      };
     },
     [onCloseMovie]
   );
