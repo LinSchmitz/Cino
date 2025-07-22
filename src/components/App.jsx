@@ -21,7 +21,7 @@ export default function App() {
   const [movies, setMovies] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('interstellar');
   const [selectedId, setSelectedId] = useState(null);
 
   function handleSelectedMovie(id) {
