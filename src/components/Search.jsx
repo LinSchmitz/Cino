@@ -1,10 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export function Search({ query, setQuery }) {
+  // useEffect(function () {
+  //   const el = document.querySelector('.search');
+  //   console.log(el);
+  //   el.focus();
+  // }, []);
+
+  // 1 - create Ref, 2- use ref, 3 - useEffect
+  const inputEl = useRef(null);
+
   useEffect(function () {
-    const el = document.querySelector('.search');
-    console.log(el);
-    el.focus();
+    inputEl.current.focus();
   }, []);
 
   return (
@@ -14,6 +21,7 @@ export function Search({ query, setQuery }) {
       placeholder="Search movies..."
       value={query}
       onChange={e => setQuery(e.target.value)}
+      ref={inputEl}
     />
   );
 }
