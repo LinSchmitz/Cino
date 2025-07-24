@@ -12,6 +12,8 @@ export function Search({ query, setQuery }) {
 
   useEffect(function () {
     function callback(e) {
+      if (document.activeElement === inputEl.current) return;
+
       if (e.code === 'Enter') {
         inputEl.current.focus();
         setQuery('');
