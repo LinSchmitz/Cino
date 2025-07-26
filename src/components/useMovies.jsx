@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 const KEY = 'c282e554';
 
-export function useMovies(query) {
+export function useMovies(query, callback) {
   const [movies, setMovies] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(
     function () {
+      callback?.();
+
       // cleaning up data fetching , AbortController is browser Api
       const controller = new AbortController();
 
@@ -45,7 +47,6 @@ export function useMovies(query) {
         return;
       }
 
-      //   handleClosedMovie();
       fetchMovies();
 
       // cleaning up data fetching
