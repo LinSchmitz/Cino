@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 const KEY = 'c282e554';
 
-export function useMovies(query, callback) {
+export function useMovies(query) {
   const [movies, setMovies] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(
     function () {
-      callback?.();
+      //   callback?.();
 
       // cleaning up data fetching , AbortController is browser Api
       const controller = new AbortController();
