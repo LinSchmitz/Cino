@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { Children, useEffect, useState } from 'react';
+import React, { Children, useEffect, useRef, useState } from 'react';
 import Loader from './Loader';
 import StarRating from './StarRating';
 import { Logo } from './Logo';
@@ -165,6 +165,9 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState('');
+
+  //How many times user change the rating
+  const countRef = useRef(0);
 
   const isWatched = watched.map(movie => movie.imdbID).includes(selectedId);
   const watchedUserRating = watched.find(
