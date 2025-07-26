@@ -12,6 +12,7 @@ import { Main } from './Main';
 import { MovieList } from './MovieList';
 import { useMovies } from './useMovies';
 import { useLocalStorageState } from './useLocalStorageState';
+import { useKey } from './useKey';
 
 const average = arr =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -150,23 +151,26 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     onCloseMovie();
   }
 
-  // use Esc key
-  useEffect(
-    function () {
-      function callback(e) {
-        if (e.code === 'Escape') {
-          onCloseMovie();
-        }
-      }
-      document.addEventListener('keydown', callback);
+  //custome hook
+  useKey('Escape', onCloseMovie);
 
-      // clean up
-      return function () {
-        document.removeEventListener('keydown', callback);
-      };
-    },
-    [onCloseMovie]
-  );
+  // // use Esc key
+  // useEffect(
+  //   function () {
+  //     function callback(e) {
+  //       if (e.code === 'Escape') {
+  //         onCloseMovie();
+  //       }
+  //     }
+  //     document.addEventListener('keydown', callback);
+
+  //     // clean up
+  //     return function () {
+  //       document.removeEventListener('keydown', callback);
+  //     };
+  //   },
+  //   [onCloseMovie]
+  // );
 
   useEffect(
     function () {
