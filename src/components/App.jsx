@@ -10,6 +10,7 @@ import { Navbar } from './Navbar';
 import { NumResults } from './NumResults';
 import { Main } from './Main';
 import { MovieList } from './MovieList';
+import { useMovies } from './useMovies';
 
 const average = arr =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -20,8 +21,10 @@ export default function App() {
   const [query, setQuery] = useState('interstellar');
   const [selectedId, setSelectedId] = useState(null);
 
-  // const [watched, setWatched] = useState([]);
+  //custome hook
+  const { movies, isLoading, error } = useMovies(query);
 
+  // const [watched, setWatched] = useState([]);
   const [watched, setWatched] = useState(function () {
     const storedValue = localStorage.getItem('watched');
     return JSON.parse(storedValue);
